@@ -1,70 +1,70 @@
 
 
 from django.shortcuts import render
-from .models import sighting
+from .models import Sighting
 from django.shortcuts import redirect
-from .forms import sightingForm
+from .forms import SquirrelMap
 
 
 # Create your views here.
 def homepage_view(request):
-    return render(request,'sightings/homepage.html')
+    return render(request,'Sightings/homepage.html')
 
 def map_view(request):
-    sights = sighting.objects.all()[:100]
+    sights = Sighting.objects.all()[:100]
     context = {
             'sights':sights,
             }
-    return render(request, 'sightings/map.html', context)
+    return render(request, 'Sightings/map.html', context)
 
 
 def list_sights(request):
-    sights = sighting.objects.all()
+    sights = Sighting.objects.all()
     fields = ['Unique_Squirrel_Id','Longtitude','Latitude','Date','Shift']
     context = {
             'sights':sights,
             'fields':fields,
             }
-    return render(request, 'sightings/list.html', context)
+    return render(request, 'Sightings/list.html', context)
 
 
 def update_sights(request,Unique_Squirrel_Id):
-    sight = sighting.objects.get(Unique_Squirrel_Id=Unique_Squirrel_Id)
+    sight = Sighting.objects.get(Unique_Squirrel_Id=Unique_Squirrel_Id)
     if request.method == 'POST':
-        form = sightingForm(request.POST, instance = sight)
+        form = SquirrelMap(request.POST, instance = sight)
         if form.is_valid():
             form.save()
-            return redirect(f'/sightings')
+            return redirect(f'/Sightings')
         else:
             return JsonResponse({'errors':form.errors}, status=400)
     else:
-        form = sightingForm(instance = sight)
+        form = SquirrelMap(instance = sight)
 
     context = {
             'form':form,
             }
-    return render(request, 'sightings/update.html', context)
+    return render(request, 'Sightings/update.html', context)
 
 
 def add_sights(request):
     if request.method == 'POST':
-        form = sightingForm(request.POST)
+        form = SquirrelMap(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(f'/sightings/')
+            return redirect(f'/Sightings/')
     else:
-        form = sightingForm()
+        form = SquirrelMap()
 
     context = {
             'form':form,
             }
 
-    return render(request, 'sightings/add.html', context)
+    return render(request, 'Sightings/add.html', context)
 
 
 def stats_view(request):
 
-    sights = sighting.objects.all()
+    sights = Sighting.objects.all()
 
     # shift
     AM_n = sights.filter(Shift='AM').count()
@@ -118,7 +118,7 @@ def stats_view(request):
             'Runs_From': {'True':True_n, 'False':False_n},
             'Runs_From_pct': {'True':True_pct, 'False':False_pct},
             }
-    return render(request, 'sightings/stats.html', {'context':context})
+    return render(request, 'Sightings/stats.html', {'context':context})
 
 
 
