@@ -5,6 +5,4 @@ from .models import Sighting
 class SquirrelMap(ModelForm):
     class Meta:
         model = Sighting
-        fields = [
-                'squirrel'
-                ]
+        fields = '__all__'

@@ -8,12 +8,12 @@ from .forms import SquirrelMap
 
 # Create your views here.
 
-def map(request):
+def map_view(request):
 	squirrels = Sighting.objects.all()[:100]
 	context = {'squirrels': squirrels}
-	return render(request, 'adopt/index.html', context)
+	return render(request, 'adopt/map.html', context)
 
-def homepage(request):
+def homepage_view(request):
     return render(request,'adopt/homepage.html')
 
 def list_sights(request):
