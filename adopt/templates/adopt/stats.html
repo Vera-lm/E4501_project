@@ -1,20 +1,55 @@
-<html>
- <h1>Sighting Stats</h1>
- <main>
-         <li>There are total of {{total}} observations.</li>
-        <br>
-        <li>Minimum Latitiude： {{lattitude.minimum}}</li>
-        <li>Maximum Latitiude：The Maxiimum latitude is {{lattitude.maximum}}</li>
-        <br>
-        <li>Minimum Longitude： {{longitude.minimum}}</li>
-        <li>Maximum Longitude： {{longitude.maximum}}</li>
-        <br>
-        <li>shift: {{shift}}</li>
-        <br>
-         <li>Running: {{running}}</li>
-        <br>
-        <li>Primary fur color: {{primary_fur_color}}</li> </ul>
-     </main>
-
+<!DOCTYPE html>
+<html lang='en-US'>
+    <head>
+        <style type='text/css'>
+            body {
+                background-color: #FEF9E7;
+            }
+            h1 {
+                color: #2980B9;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 40px;
+                font-weight: 500;
+            }
+            h2 {
+                color: #2980B9;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 20px;
+                font-weight: 500;
+            }
+            p {
+                color: #5D6D7E;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            a {
+                color: #5D6D7E;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 10px;
+                font-weight: 500;
+            }
+            ul {
+                -webkit-column-count: 4; /* Chrom, Safari, Opera */
+                -moz-column-count: 4; /* Firefox */
+                column-count: 4;
+            }
+        </style>
+    </head>
+    <head>
+        <body>
+            {% load static %}
+            <h1 align='center'>Squirrels Statistics</h1>
+                {% load static %}
+            <br>
+            <ul>
+                {% for key, value in context.items %}
+                <li>
+                    <a>{{key}}: {{value}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </body>
+    </head>
 </html>
 

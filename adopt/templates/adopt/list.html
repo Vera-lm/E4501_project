@@ -3,11 +3,41 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Squirrel List</title>
-        
-    </head>
+        <title>Squirrel</title>
+        <style>
+        .h {
+          padding: 40px;
+          text-align: center;
+          background: #87CEFA;
+          color: white;
+          font-size: 15px;
+          font-family: 'Marker Felt', fantasy;
+        }
 
-        
+        .b {
+          padding: 10px;
+          text-align: center;
+          background: #87CEFA;
+          color: white;
+          font-size: 15px;
+          font-family: 'Marker Felt', fantasy;
+          display: inline-block;
+        }
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        } 
+
+        th {
+          height: 120px;
+          font-weight: bold
+        }
+        table, th, td {
+          border: 1px solid black;
+        }
+    
+        </style>
+    </head>
     <body>
         <header class="h">
             <h1>Squirrel Data</h1>
@@ -42,30 +72,30 @@
                 <th>Indifferent</th>
                 <th>Runs_from</th>
             </tr>
-            {% for Sighting in Sightingirrels %}
+            {% for squ in sights %}
             <tr>
-                <td><a href="{{Sighting.Unique_Squirrel_ID}}">{{Sighting.Unique_Squirrel_ID}}</a></td>
-                <td>{{Sighting.Latitude}}</td> 
-                <td>{{Sighting.Longitude}}</td>
-                <td>{{Sighting.Shift}}</td>
-                <td>{{Sighting.Date}}</td>
-                <td>{{Sighting.Age}}</td>
-                <td>{{Sighting.Primary_Fur_Color}}</td>
-                <td>{{Sighting.Location}}</td>
-                <td>{{Sighting.Specific_Location}}</td>
-                <td>{{Sighting.Running}}</td>
-                <td>{{Sighting.Chasing}}</td>
-                <td>{{Sighting.Climbing}}</td>
-                <td>{{Sighting.Eating}}</td>
-                <td>{{Sighting.Foraging}}</td>
-                <td>{{Sighting.Kuks}}</td>
-                <td>{{Sighting.Quaas}}</td>
-                <td>{{Sighting.Moans}}</td>
-                <td>{{Sighting.Tail_flags}}</td>
-                <td>{{Sighting.Tail_twiches}}</td>
-                <td>{{Sighting.Approaches}}</td>
-                <td>{{Sighting.Indifferent}}</td>
-                <td>{{Sighting.Runs_from}}</td>
+                <td><a href="{{squ.Unique_Squirrel_ID}}">{{squ.Unique_Squirrel_ID}}</a></td>
+                <td>{{squ.Latitude}}</td> 
+                <td>{{squ.Longitude}}</td>
+                <td>{{squ.Shift}}</td>
+                <td>{{squ.Date}}</td>
+                <td>{{squ.Age}}</td>
+                <td>{{squ.Primary_Fur_Color}}</td>
+                <td>{{squ.Location}}</td>
+                <td>{{squ.Specific_Location}}</td>
+                <td>{{squ.Running}}</td>
+                <td>{{squ.Chasing}}</td>
+                <td>{{squ.Climbing}}</td>
+                <td>{{squ.Eating}}</td>
+                <td>{{squ.Foraging}}</td>
+                <td>{{squ.Kuks}}</td>
+                <td>{{squ.Quaas}}</td>
+                <td>{{squ.Moans}}</td>
+                <td>{{squ.Tail_flags}}</td>
+                <td>{{squ.Tail_twiches}}</td>
+                <td>{{squ.Approaches}}</td>
+                <td>{{squ.Indifferent}}</td>
+                <td>{{squ.Runs_from}}</td>
             </tr>
             {% endfor %}
         </table>
