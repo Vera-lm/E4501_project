@@ -1,28 +1,3 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404
-from .models import sighting
-
-
-def index(request):
-    squirrels = sighting.object.all()
-    context = {
-        'squirrels' :squirrels,
-    }
-    return render(request, 'adopt/index.html', {})
-
-def map(request):
-    sightings = sighting.objects.all()[:100]
-    context = {
-         'squirrels': squirrels,
-        }
-    return render(request, 'tracker/map.html', context)
-
-def detail(request, squirrel_id):
-    squirrel = sighting.objects.get(squirrel_id = Unique_Squirrel_Id)
-    if 
-
-
 
 
 from django.shortcuts import render
