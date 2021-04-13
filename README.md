@@ -1,4 +1,4 @@
-#  **IEOR FINAL PROJECT**
+#  **IEOR4501 FINAL PROJECT**
 
 
 ## Squirrel Tracker: *a visulization web-application of tracking squirrels*
