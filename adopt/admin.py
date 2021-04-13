@@ -1,8 +1,6 @@
 from django.contrib import admin
-from .models import Sight
-from .models import AdoptRequest
+from .models import Sighting
 
-admin.site.register(Sight)
-admin.site.register(AdoptRequest)
+admin.site.register(Sighting)
 
 # Register your models here.

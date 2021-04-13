@@ -1,12 +1,10 @@
 from django.forms import ModelForm
-from .models import AdoptRequest
+from .models import Sighting
 
 
 class SquirrelMap(ModelForm):
     class Meta:
-        model = SquirrelMap
+        model = Sighting
         fields = [
                 'squirrel'
                 ]
-
-

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Squirrel</title>
+        <style>
+        .h {
+          padding: 40px;
+          text-align: center;
+          background: #87CEFA;
+          color: white;
+          font-size: 15px;
+          font-family: 'Marker Felt', fantasy;
+        }
+
+        .b {
+          padding: 10px;
+          text-align: center;
+          background: #87CEFA;
+          color: white;
+          font-size: 15px;
+          font-family: 'Marker Felt', fantasy;
+          display: inline-block;
+        }
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        } 
+
+        th {
+          height: 120px;
+          font-weight: bold
+        }
+        table, th, td {
+          border: 1px solid black;
+        }
+    
+        </style>
+    </head>
+    <body>
+        <header class="h">
+            <h1>Squirrel Data</h1>
+        </header>
+
+        <main>
+        <br>
+        <p><a href="add/", class="b">ADD ANOTHER SQUIRREL!</a></p>
+        <br>
+        <table>
+            <tr>
+                <th>Unique_Squirrel_ID</th>
+                <th>Latitude</th> 
+                <th>Longitude</th>
+                <th>Shift</th>
+                <th>Date</th>
+                <th>Age</th>
+                <th>Primary_Fur_Color</th>
+                <th>Location</th>
+                <th>Specific_Location</th>
+                <th>Running</th>
+                <th>Chasing</th>
+                <th>Climbing</th>
+                <th>Eating</th>
+                <th>Foraging</th>
+                <th>Kuks</th>
+                <th>Quaas</th>
+                <th>Moans</th>
+                <th>Tail_flags</th>
+                <th>Tail_twiches</th>
+                <th>Approaches</th>
+                <th>Indifferent</th>
+                <th>Runs_from</th>
+            </tr>
+            {% for squ in squirrels %}
+            <tr>
+                <td><a href="{{squ.Unique_Squirrel_ID}}">{{squ.Unique_Squirrel_ID}}</a></td>
+                <td>{{squ.Latitude}}</td> 
+                <td>{{squ.Longitude}}</td>
+                <td>{{squ.Shift}}</td>
+                <td>{{squ.Date}}</td>
+                <td>{{squ.Age}}</td>
+                <td>{{squ.Primary_Fur_Color}}</td>
+                <td>{{squ.Location}}</td>
+                <td>{{squ.Specific_Location}}</td>
+                <td>{{squ.Running}}</td>
+                <td>{{squ.Chasing}}</td>
+                <td>{{squ.Climbing}}</td>
+                <td>{{squ.Eating}}</td>
+                <td>{{squ.Foraging}}</td>
+                <td>{{squ.Kuks}}</td>
+                <td>{{squ.Quaas}}</td>
+                <td>{{squ.Moans}}</td>
+                <td>{{squ.Tail_flags}}</td>
+                <td>{{squ.Tail_twiches}}</td>
+                <td>{{squ.Approaches}}</td>
+                <td>{{squ.Indifferent}}</td>
+                <td>{{squ.Runs_from}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+
+    </body>
+</html>

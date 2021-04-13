@@ -7,34 +7,32 @@ from .forms import SquirrelMap
 
 
 # Create your views here.
-def homepage_view(request):
-    return render(request,'Sightings/homepage.html')
 
-def map_view(request):
-    sights = Sighting.objects.all()[:100]
-    context = {
-            'sights':sights,
-            }
-    return render(request, 'Sightings/map.html', context)
+def map(request):
+	squirrels = Sighting.objects.all()[:100]
+	context = {'squirrels': squirrels}
+	return render(request, 'adopt/index.html', context)
 
+def homepage(request):
+    return render(request,'adopt/homepage.html')
 
 def list_sights(request):
     sights = Sighting.objects.all()
-    fields = ['Unique_Squirrel_Id','Longtitude','Latitude','Date','Shift']
+    fields = ['Unique_Squirrel_ID','Longtitude','Latitude','Date','Shift']
     context = {
             'sights':sights,
             'fields':fields,
             }
-    return render(request, 'Sightings/list.html', context)
+    return render(request, 'adopt/list.html', context)
 
 
-def update_sights(request,Unique_Squirrel_Id):
-    sight = Sighting.objects.get(Unique_Squirrel_Id=Unique_Squirrel_Id)
+def update_sights(request,Unique_Squirrel_ID):
+    sight = Sighting.objects.get(Unique_Squirrel_ID=Unique_Squirrel_ID)
     if request.method == 'POST':
         form = SquirrelMap(request.POST, instance = sight)
         if form.is_valid():
             form.save()
-            return redirect(f'/Sightings')
+            return redirect(f'/adopt')
         else:
             return JsonResponse({'errors':form.errors}, status=400)
     else:
@@ -43,7 +41,7 @@ def update_sights(request,Unique_Squirrel_Id):
     context = {
             'form':form,
             }
-    return render(request, 'Sightings/update.html', context)
+    return render(request, 'adopt/update.html', context)
 
 
 def add_sights(request):
@@ -51,7 +49,7 @@ def add_sights(request):
         form = SquirrelMap(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(f'/Sightings/')
+            return redirect(f'/adopt/')
     else:
         form = SquirrelMap()
 
@@ -59,7 +57,7 @@ def add_sights(request):
             'form':form,
             }
 
-    return render(request, 'Sightings/add.html', context)
+    return render(request, 'adopt/add.html', context)
 
 def stats(request):
 	squirrels = Sighting.objects.all()
@@ -76,4 +74,4 @@ def stats(request):
 		'running': running,
 		'shift': shift,
 		}
-	return render(request, 'sightings/stats.html', context)
+	return render(request, 'adopt/stats.html', context)

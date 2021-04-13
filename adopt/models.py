@@ -25,116 +25,108 @@ class Sighting(models.Model):
             default = "AM")
     
     Date = models.DateField(
-            help_text = _('Date sighted. The format is in mmddyyyy'),
+            help_text = gettext('Date sighted. The format is in mmddyyyy'),
             null = True,
             blank = True,
             default = None,
             )
-
-    Shift = models.CharField(
-            help_text = _('Whether the sight is in the morning or late afternoon?'),
-            max_length=16,
-            choices=SESSION,
-            blank=True)
-
-    Date = models.DateField(
-            help_text = _('The format is in yyyy-mm-dd'),
-            null = True,
-            blank=True)
-    
+   
     Age = models.CharField(
-            help_text = _('Adult or Juvenile'),
+            help_text = gettext('Adult or Juvenile'),
             choices = (('Adult','Adult'), ('Juvenile', 'Juvenile'), (None, ''), ('?', '?'),),
             blank = True,
             default = '',
+            max_length = 30,
             )
 
     Primary_Fur_Color = models.CharField(
-            help_text = _('Fur color'),
+            help_text = gettext('Fur color'),
             max_length = 16,
             choices = (('Black', 'Black'), ('Gray', 'Gray'), ('Cinnamon', 'Cinnamon'), (None, ''),),
-            blank = True
+            blank = True,
             )
     
     Location = models.CharField(
-            help_text = _('Location'),
+            help_text = gettext('Location'),
             choices = (('Ground Plane', 'Ground Plane'), ('Above Ground', 'Above Ground'), (None, ''),),
-            blank = True
+            blank = True,
+            max_length = 100,
             )
 
     Specific_Location = models.CharField(
-            help_text = _('Specific location'),
+            help_text = gettext('Specific location'),
             blank = True,
+            max_length = 100,
             )
 
     Running = models.NullBooleanField(
-            help_text = _('Running'),
+            help_text = gettext('Running'),
             blank=True,
     )
     
     Chasing = models.NullBooleanField(
-            help_text = _('Chasing'),
+            help_text = gettext('Chasing'),
             blank=True,
     )
 
     Climbing = models.NullBooleanField(
-            help_text = _('Climbing'),
+            help_text = gettext('Climbing'),
             blank=True,
     )
 
     Eating = models.NullBooleanField(
-            help_text = _('Eating'),
+            help_text = gettext('Eating'),
             blank=True,
     )
 
     Foraging = models.NullBooleanField(
-            help_text = _('Foraging'),
+            help_text = gettext('Foraging'),
             blank=True,
     )
 
     Other_Activities = models.CharField(
-        help_text = _('Other Activities'),
+        help_text = gettext('Other Activities'),
         null = True,
-        blank = True
+        blank = True,
+        max_length = 1000,
     )
 
     Kuks = models.NullBooleanField(
-            help_text = _('Kuks'),
+            help_text = gettext('Kuks'),
             blank=True,
     )
 
     Quaas = models.NullBooleanField(
-            help_text = _('Quaas'),
+            help_text = gettext('Quaas'),
             blank=True,
     )
 
     Moans = models.NullBooleanField(
-            help_text = _('Moans'),
+            help_text = gettext('Moans'),
             blank=True,
     )
 
     Tail_flags = models.NullBooleanField(
-            help_text = _('Tail flags'),
+            help_text = gettext('Tail flags'),
             blank=True,
     )
 
     Tail_twitches = models.NullBooleanField(
-            help_text = _('Tail twitches'),
+            help_text = gettext('Tail twitches'),
             blank=True,
     )
 
     Approaches = models.NullBooleanField(
-            help_text = _('Approaches'),
+            help_text = gettext('Approaches'),
             blank=True,
     )
 
     Indifferent = models.NullBooleanField(
-            help_text = _('Indifferent'),
+            help_text = gettext('Indifferent'),
             blank=True,
     )
     
     Runs_from = models.NullBooleanField(
-            help_text = _('Runs_From'),
+            help_text = gettext('Runs_From'),
             blank=True,
     )
-
