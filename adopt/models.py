@@ -6,6 +6,8 @@ class Sighting(models.Model):
     Longitude  = models.FloatField(
             help_text = gettext('Longitude of the sight'),
             max_length=30,
+            null = True,
+            blank = True,
             )
 
     Latitude = models.FloatField(

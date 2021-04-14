@@ -28,21 +28,21 @@ def list_sights(request):
             }
     return render(request, 'adopt/list.html', context)
 
+def update_sights(request, **unique_squirrel_id):
+    if not request: 
+        return Http404("Page Not Found")
 
-def update_sights(request,**Unique_Squirrel_Id):
-    sight = Sighting.objects.get(Unique_Squirrel_ID=Unique_Squirrel_Id)
-    if request.method == 'POST':
-        form = SquirrelMap(request.POST, instance = sight)
+    data = Sighting.objects.filter(Unique_Squirrel_ID=unique_squirrel_id).first()
+    if request.method == "POST":
+        form = SquirrelMap(request.POST, instance=data)
         if form.is_valid():
             form.save()
-            return redirect(f'/adopt')
+            return redirect('/adopt')
     else:
-        form = SquirrelMap(instance = sight)
+        form = SquirrelMap(instance=data)
+        context = {'form': form}
+        return render(request, 'adopt/update.html', context)
 
-    context = {
-            'form':form,
-            }
-    return render(request, 'adopt/update.html', context)
 
 def add_sights(request):
     if request.method == 'POST':

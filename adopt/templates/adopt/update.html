@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 <html>
-	<title> A
-	<body>
-		<form method="post">{% csrf_token %}
-			{{form.as_p}}
-			<br>
-			<input type="submit" name="Submit">
-		</form>
-	</body>
+    <body>
+        <form meth="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <hr>
+            <input type="submit" name="Update" value="Update">
+        </form>
+    </body>
 </html>
