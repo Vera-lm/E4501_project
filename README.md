@@ -9,7 +9,7 @@ We have implemented Django, Python and Html to construct a website which tracks 
 
 ## Who are we?
 Group 56: Meng Li & Xiaoling Pang\
-UNIs: [ ml4609 , xp21885 ]
+UNIs: [ ml4609 , xp2185 ]
 
 ## [please click here](http://34.123.136.85/) to run our application
 
