@@ -1,58 +1,34 @@
 <!DOCTYPE html>
-<html lang='en-US'>
-    <head>
-	<body background = "https://uploadfile.huiyi8.com/2014/0515/20140515025307208.jpg" 
-		style=" background-repeat:no-repeat ;background-size:100% 100%; background-attachment: fixed;">
+<html lang="en">
 
-        <style type='text/css'>
-            body {
-                background-color: #FEF9E7;
-            }
-            h1 {
-                color: #2980B9;
-                font-family: 'Open Sans', sans-serif;
-                font-size: 40px;
-                font-weight: 500;
-            }
-            h2 {
-                color: #2980B9;
-                font-family: 'Open Sans', sans-serif;
-                font-size: 20px;
-                font-weight: 500;
-            }
-            p {
-                color: #5D6D7E;
-                font-family: 'Open Sans', sans-serif;
-                font-size: 16px;
-                font-weight: 500;
-            }
-            a {
-                color: #5D6D7E;
-                font-family: 'Open Sans', sans-serif;
-                font-size: 10px;
-                font-weight: 500;
-            }
-            ul {
-                -webkit-column-count: 4; /* Chrom, Safari, Opera */
-                -moz-column-count: 4; /* Firefox */
-                column-count: 4;
-            }
+    <head>
+        <meta charset="UTF-8">
+        <title>Squirrel</title>
+        <style>
+        .h {
+          padding: 40px;
+          text-align: center;
+          background: #87CEFA;
+          color: white;
+          font-size: 15px;
+          font-family: 'Marker Felt', fantasy
+        }
         </style>
     </head>
-    <head>
-        <body>
-            {% load static %}
-            <h1 align='center'>Squirrels Statistics</h1>
-                {% load static %}
-            <br>
-            <ul>
-                {% for key, value in context.items %}
-                <li>
-                    <a>{{key}}: {{value}}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </body>
-    </head>
+
+    <body>
+
+        <header class="h">
+            <h1>General Stats about the Sightings</h1>
+        </header>
+        <br>
+        <li>We have a total of {{total}} fluffy  squirrel observations.</li>
+	<li>Their age distribution is: {{age}}</li>
+      	<li>The maximum latitude is {{lattitude.maximum}}</li>
+      	<li>The maximum longitude is {{longitude.maximum}}</li>
+      	<li>The locations are {{location}}</li>
+     	<li>The are running: {{running}}</li>
+
+    </body>
 </html>
 
